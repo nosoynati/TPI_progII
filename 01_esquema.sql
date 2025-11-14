@@ -1,4 +1,5 @@
 CREATE DATABASE if not exists mascota_microchip;
+USE mascota_microchip;
 
 CREATE TABLE if not exists microchip (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -23,3 +24,5 @@ CREATE TABLE if not exists mascota (
 CREATE INDEX idx_mascota_especie ON mascota(especie);
 CREATE INDEX idx_mascota_duenio ON mascota(duenio);
 CREATE INDEX idx_microchip_fecha ON microchip(fecha_implantacion);
+
+/*drop database mascota_microchip;*/
