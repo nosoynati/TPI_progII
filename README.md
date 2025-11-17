@@ -1,11 +1,43 @@
 # Programación II - Trabajo Integrador
 
+## índice 
+- [Proyecto: estructura](#estructura-del-proyecto)
+- [Descripción del dominio](#descripción-del-dominio)
+- [Requisitos](#requisitos-del-sistema)
+- [Archivos SQL](#archivos-sql-provistos)
+- [Crear Base de Datos](#pasos-para-crear-la-base-de-datos)
+- [Capa de persistencia y acceso a datos](#capa-de-persistencia-y-acceso-a-datos)
+- [Capa de presentacion](#capa-de-presentación)
 
+---------------
 
 ## Sistema de Gestión de Mascotas y Microchips
 
 Aplicación de consola en **Java** para administrar mascotas y sus microchips asociados.  
 El sistema implementa un CRUD completo para ambas entidades utilizando JDBC, DAOs genéricos, servicios y modelos basados en una clase común (`Base`).
+
+## Estructura del proyecto
+
+```sh
+
+/src
+├── config/
+│    └── databaseConnection.java
+├── dao/
+│    ├── GenericDao.java 
+│    └── *.java (DAOs concretos)
+├── service/
+│    ├── GenericService.java 
+│    └── *.java (Servicios concretos) 
+├── model/
+│    ├── Base.java 
+│    ├── Mascota.java 
+│    └── Microchip.java 
+├── main/
+│    ├── Main.java 
+│    └── AppMenu.java └── Main.java
+ 
+ ``` 
 
 ## Descripción del dominio
 
@@ -125,48 +157,9 @@ Incluye:
 
 ``` 
 
-----------
 
-## Compilar y ejecutar la aplicación
 
-### **Compilar vía consola**
-
-Suponiendo que las clases están en `/src`:
-
-`javac -d out $(find src -name "*.java")` 
-
-### **Ejecutar**
-
-Ejecutar la app desde el archivo ``Main.java``
-
-----------
-
-## Estructura del proyecto
-
-```sh
-
-/src
-├── config/
-│    └── databaseConnection.java
-├── dao/
-│    ├── GenericDao.java 
-│    └── *.java (DAOs concretos)
-├── service/
-│    ├── GenericService.java 
-│    └── *.java (Servicios concretos) 
-├── model/
-│    ├── Base.java 
-│    ├── Mascota.java 
-│    └── Microchip.java 
-├── main/
-│    ├── Main.java 
-│    └── AppMenu.java └── Main.java
- 
- ``` 
-
-----------
-
-## Capas de persistencia y acceso a datos
+## Capa de persistencia y acceso a datos
 
 ### **DAO: Data Access Object<T>**
 
@@ -197,3 +190,15 @@ Realiza las operaciones correspondientes al DAO validando las reglas de negocio 
 -   getById
     
 -   getAll
+
+-----------
+
+## Capa de presentación
+
+La capa de presentación corresponde al archivo ``Main.java`` que ejecuta el menú de ``AppMenu.java`` con todos los comandos necesarios para realizar todas las operaciones. La interfaz es una vista báscia que opera con comandos desde consola.
+
+### **Ejecutar**
+
+Ejecutar la app desde el archivo ``Main.java``
+
+----------
